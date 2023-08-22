@@ -1,0 +1,5 @@
+Wildfire
+
+https://opendata-bouldercounty.hub.arcgis.com/datasets/bouldercounty::wildfire-history/about
+
+https://www.spatstat.com/NIST/HarrisHarvey.html
