@@ -138,6 +138,18 @@
 						fontSize: 10
 					}
 				},
+				// tickPositions: [100000, 150000, 200000, 250000,
+				// 	300000, 350000, 400000, 450000, 500000, 550000,
+				// 	600000, 650000, 700000, 750000, 800000, 850000,
+				// 	900000, 950000, 1000000, 1050000, 1100000, 1150000,
+				// 	1200000, 1250000, 1300000, 1350000, 1400000, 1450000,
+				// 	1500000, 1550000, 1600000, 1650000, 1700000, 1750000,
+				// 	1800000, 1850000, 1900000, 1950000, 2000000, 2050000,
+				// 	2100000, 2150000, 2200000, 2250000, 2300000, 2350000,
+				// 	2400000, 2450000, 2500000, 2550000, 2600000, 2650000,
+				// 	2700000, 2750000, 2800000, 2850000, 2900000, 2950000,
+				// ]
+
 			},
 			plotOptions: {
 				line: {
@@ -195,6 +207,18 @@
 						fontSize: 10
 					}
 				},
+				// tickPositions: [100000, 150000, 200000, 250000,
+				// 	300000, 350000, 400000, 450000, 500000, 550000,
+				// 	600000, 650000, 700000, 750000, 800000, 850000,
+				// 	900000, 950000, 1000000, 1050000, 1100000, 1150000,
+				// 	1200000, 1250000, 1300000, 1350000, 1400000, 1450000,
+				// 	1500000, 1550000, 1600000, 1650000, 1700000, 1750000,
+				// 	1800000, 1850000, 1900000, 1950000, 2000000, 2050000,
+				// 	2100000, 2150000, 2200000, 2250000, 2300000, 2350000,
+				// 	2400000, 2450000, 2500000, 2550000, 2600000, 2650000,
+				// 	2700000, 2750000, 2800000, 2850000, 2900000, 2950000,
+				// ]
+
 			},
 			plotOptions: {
 				line: {
@@ -254,6 +278,18 @@
 						fontSize: 10
 					}
 				},
+				// tickPositions: [100000, 150000, 200000, 250000,
+				// 	300000, 350000, 400000, 450000, 500000, 550000,
+				// 	600000, 650000, 700000, 750000, 800000, 850000,
+				// 	900000, 950000, 1000000, 1050000, 1100000, 1150000,
+				// 	1200000, 1250000, 1300000, 1350000, 1400000, 1450000,
+				// 	1500000, 1550000, 1600000, 1650000, 1700000, 1750000,
+				// 	1800000, 1850000, 1900000, 1950000, 2000000, 2050000,
+				// 	2100000, 2150000, 2200000, 2250000, 2300000, 2350000,
+				// 	2400000, 2450000, 2500000, 2550000, 2600000, 2650000,
+				// 	2700000, 2750000, 2800000, 2850000, 2900000, 2950000,
+				// ]
+
 			},
 			plotOptions: {
 				line: {
@@ -367,8 +403,6 @@
 				url: url_patientscount,
 				outFields: ["*"],
 				layerId: 0,
-				// opacity: 0,
-				// legendEnabled: false,
 				listMode: "show",
 				visible: false
 			});
@@ -542,6 +576,7 @@
 					}
 					]
 				},
+				// popupEnabled: false
 			});
 
 			reactiveUtils.watch(
@@ -1014,247 +1049,7 @@
 					}
 				});
 
-			// ----------------------------------------- Tweets -----------------------------------------
-			let windswath1_Renderer = {
-				type: "simple",  // autocasts as new SimpleRenderer()
-				symbol: {
-					type: "simple-marker",  // autocasts as new SimpleMarkerSymbol()
-					size: 6,
-					color: "black",
-					outline: {  // autocasts as new SimpleLineSymbol()
-						width: 0.5,
-						color: "white"
-					}
-				}
-			};
-
-			const popupTemplate = {
-				content: [{
-					title: "Tweet",
-					type: "fields", // FieldsContentElement
-					fieldInfos: [
-						{
-							fieldName: "date", label: "Date"
-						},
-						{
-							fieldName: "content", label: "Content"
-						}
-					]
-				}]
-			}
-			const twitter_windswath1_2017_08_26 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_08_26_stream_windswath1/FeatureServer/0',
-				// renderer: windswath1_Renderer
-			})
-			const twitter_windswath2_2017_08_26 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_08_26_stream_windswath2/FeatureServer/0'
-			})
-			const twitter_windswath3_2017_08_26 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_08_26_stream_windswath3/FeatureServer/0'
-			})
-			const twitter_windswath_2017_08_26 = new GroupLayer({
-				title: 'Tweets within windswath',
-				visible: false,
-				legendEnabled: false,
-				layers: [
-					twitter_windswath1_2017_08_26,
-					twitter_windswath2_2017_08_26,
-					twitter_windswath3_2017_08_26,
-				],
-				listMode: 'hide-children'
-			})
-			const twitter_windswath1_2017_08_27 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_08_27_stream_windswath1/FeatureServer/0'
-			})
-			const twitter_windswath2_2017_08_27 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_08_27_stream_windswath2/FeatureServer/0'
-			})
-			const twitter_windswath3_2017_08_27 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_08_27_stream_windswath3/FeatureServer/0'
-			})
-			const twitter_windswath_2017_08_27 = new GroupLayer({
-				title: 'Tweets within windswath',
-				legendEnabled: false,
-				layers: [
-					twitter_windswath1_2017_08_27,
-					twitter_windswath2_2017_08_27,
-					twitter_windswath3_2017_08_27,
-				],
-				listMode: 'hide-children'
-			})
-			const twitter_windswath1_2017_08_28 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_08_28_stream_windswath1/FeatureServer/0'
-			})
-			const twitter_windswath2_2017_08_28 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_08_28_stream_windswath2/FeatureServer/0'
-			})
-			const twitter_windswath3_2017_08_28 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_08_28_stream_windswath3/FeatureServer/0'
-			})
-			const twitter_windswath_2017_08_28 = new GroupLayer({
-				title: 'Tweets within windswath',
-				legendEnabled: false,
-				layers: [
-					twitter_windswath1_2017_08_28,
-					twitter_windswath2_2017_08_28,
-					twitter_windswath3_2017_08_28,
-				],
-				listMode: 'hide-children'
-			})
-			const twitter_windswath1_2017_08_29 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_08_29_stream_windswath1/FeatureServer/0'
-			})
-			const twitter_windswath2_2017_08_29 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_08_29_stream_windswath2/FeatureServer/0'
-			})
-			const twitter_windswath3_2017_08_29 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_08_29_stream_windswath3/FeatureServer/0'
-			})
-			const twitter_windswath_2017_08_29 = new GroupLayer({
-				title: 'Tweets within windswath',
-				legendEnabled: false,
-				layers: [
-					twitter_windswath1_2017_08_29,
-					twitter_windswath2_2017_08_29,
-					twitter_windswath3_2017_08_29,
-				],
-				listMode: 'hide-children'
-			})
-			const twitter_windswath1_2017_08_30 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_08_30_stream_windswath1/FeatureServer/0'
-			})
-			const twitter_windswath2_2017_08_30 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_08_30_stream_windswath2/FeatureServer/0'
-			})
-			const twitter_windswath3_2017_08_30 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_08_30_stream_windswath3/FeatureServer/0'
-			})
-			const twitter_windswath_2017_08_30 = new GroupLayer({
-				title: 'Tweets within windswath',
-				legendEnabled: false,
-				layers: [
-					twitter_windswath1_2017_08_30,
-					twitter_windswath2_2017_08_30,
-					twitter_windswath3_2017_08_30,
-				],
-				listMode: 'hide-children'
-			})
-			const twitter_windswath1_2017_08_31 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_08_31_stream_windswath1/FeatureServer/0'
-			})
-			const twitter_windswath2_2017_08_31 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_08_31_stream_windswath2/FeatureServer/0'
-			})
-			const twitter_windswath3_2017_08_31 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_08_31_stream_windswath3/FeatureServer/0'
-			})
-			const twitter_windswath_2017_08_31 = new GroupLayer({
-				title: 'Tweets within windswath',
-				legendEnabled: false,
-				layers: [
-					twitter_windswath1_2017_08_31,
-					twitter_windswath2_2017_08_31,
-					twitter_windswath3_2017_08_31,
-				],
-				listMode: 'hide-children'
-			})
-			const twitter_windswath1_2017_09_01 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_09_01_stream_windswath1/FeatureServer/0'
-			})
-			const twitter_windswath2_2017_09_01 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_09_01_stream_windswath2/FeatureServer/0'
-			})
-			const twitter_windswath3_2017_09_01 = new FeatureLayer({
-				popupEnabled: true,
-				outFields: ["*"],
-				popupTemplate: popupTemplate,
-				url: 'https://services.arcgis.com/b3fMqPOmotX6SV4k/arcgis/rest/services/2017_09_01_stream_windswath3/FeatureServer/0'
-			})
-			const twitter_windswath_2017_09_01 = new GroupLayer({
-				title: 'Tweets within windswath',
-				legendEnabled: false,
-				layers: [
-					twitter_windswath1_2017_09_01,
-					twitter_windswath2_2017_09_01,
-					twitter_windswath3_2017_09_01,
-				],
-				listMode: 'hide-children'
-			})
-
-			reactiveUtils.watch(
-				() => twitter_windswath_2017_08_26.visible,
-				(visible) => {
-					if (visible) {
-						view.goTo({
-							center: [-99, 31],
-							zoom: home_zoom - 1
-						});
-					} else {
-						view_go_home()
-					}
-				});
-			
-			// ----------------------------------------- add previous layers to map -----------------------------------------
+		// ----------------------------------------- add previous layers to map -----------------------------------------
 			map.add(NOAA_harvey_imagery)
 			map.add(MAXAR)
 			map.add(SVI_2018)
@@ -1267,7 +1062,7 @@
 			map.add(hurricane_harvey_trajectory)
 			map.add(layer_hospital)
 			// map.add(twitter_texas_2017_08_26)
-			map.add(twitter_windswath_2017_08_26)
+			//map.add(twitter_windswath_2017_08_26)
 
 			// ----------------------------------------- Add Basemap Gallery -----------------------------------------
 			const basemapGallery = new BasemapGallery({
@@ -1294,81 +1089,7 @@
 				view: view
 			}), "bottom-left");
 
-			// ----------------------------------------- Add time slider for tweet data -----------------------------------------
-			// widget initialization
-			const timeSlider_windswath = new TimeSlider({
-				container: "timeSliderDiv_windswath",
-				view: view,
-				timeVisible: false,
-				mode: "instant",
-				fullTimeExtent: {
-					start: new Date('2007-08-26T00:00:00'),
-					end: new Date('2007-09-01T00:00:00')
-				},
-				timeExtent: {
-					start: new Date('2007-08-26T00:00:00'),
-					end: new Date('2007-08-26T00:00:00')
-				},
-				stops: {
-					interval: {
-						value: 1,
-						unit: "days"
-					}
-				}
-			});
-
-			// time slider for twitter data in different windswath
-			current_twitter_layer_windswath = twitter_windswath_2017_08_26
-			reactiveUtils.watch(
-				() => current_twitter_layer_windswath.visible,
-				(visible) => {
-					if (visible) {
-						view.ui.add(timeSlider_windswath, "bottom-left");
-						view.goTo({
-							center: home_center,
-							zoom: home_zoom
-						});
-					} else {
-						view.ui.remove(timeSlider_windswath);
-					}
-				});
-
-			timeSlider_windswath.watch("timeExtent", (value) => {
-				console.log(value.end)
-				map.remove(current_twitter_layer_windswath)
-
-				if (String(value.end).split(" ")[1] == 'Aug') {
-					if (String(value.end).split(" ")[2] == '27') {
-						current_twitter_layer_windswath = twitter_windswath_2017_08_27
-					} else if (String(value.end).split(" ")[2] == '28') {
-						current_twitter_layer_windswath = twitter_windswath_2017_08_28
-					} else if (String(value.end).split(" ")[2] == '29') {
-						current_twitter_layer_windswath = twitter_windswath_2017_08_29
-					} else if (String(value.end).split(" ")[2] == '30') {
-						current_twitter_layer_windswath = twitter_windswath_2017_08_30
-					} else if (String(value.end).split(" ")[2] == '31') {
-						current_twitter_layer_windswath = twitter_windswath_2017_08_31
-					}
-				} else if (String(value.end).split(" ")[1] == 'Sep') {
-					current_twitter_layer_windswath = twitter_windswath_2017_09_01
-				}
-
-				map.add(current_twitter_layer_windswath)
-				reactiveUtils.watch(
-					() => current_twitter_layer_windswath.visible,
-					(visible) => {
-						if (visible) {
-							view.ui.add(timeSlider_windswath, "bottom-left");
-							view.goTo({
-								center: home_center,
-								zoom: home_zoom
-							});
-						} else {
-							view.ui.remove(timeSlider_windswath);
-						}
-					});
-			})
-
+			
 			// ----------------------------------------- Add filters and charts for Patients count -----------------------
 			let numClassesInput, slider;
 			var patientstypeFilter, sexFilter, raceFilter, ageFilter;
@@ -1610,8 +1331,6 @@
 				var chart = Highcharts.chart('container_PatientsCount_zipcode', {
 					chart: {
 						type: 'line',
-						// height: 400,
-						// width: 600
 					},
 					title: {
 						text: zip_code ? 'Patients Count under given Filter' : "Please click on the location you are interested in in the layer."
